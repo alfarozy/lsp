@@ -9,6 +9,7 @@ use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\UserController;
@@ -48,9 +49,9 @@ Route::prefix('dashboard')->group(function () {
         //> asesmen 
         Route::resource("asesmen", AsesmenController::class)->except("create");
 
-        //> programs 
-        // Route::resource("programs", ProgramController::class);
-        // Route::get('programs-action/setActive/{id}', [ProgramController::class, 'setActive'])->name('programs.setActive');
+        //> Laporan 
+        Route::get('laporan/kelulusan', [LaporanController::class, 'index'])->name('laporan.asesmen');
+        Route::get('laporan/kelulusan/export', [LaporanController::class, 'export'])->name('laporan.asesmen.export');
 
         //> user
         Route::resource('users', UserController::class);
@@ -130,6 +131,8 @@ Route::prefix('asesor/dashboard')->group(function () {
         Route::get('siswa-action/setActive/{id}', [SiswaController::class, 'setActive'])->name('asesor-siswa.setActive');
         //> asesmen 
         Route::resource("asesor-asesmen", AsesmenController::class)->except("create");
+        Route::get('asesor/laporan/kelulusan', [LaporanController::class, 'index'])->name('asesor.laporan.asesmen');
+        Route::get('asesor/laporan/kelulusan/export', [LaporanController::class, 'export'])->name('asesor.laporan.asesmen.export');
     });
 
 

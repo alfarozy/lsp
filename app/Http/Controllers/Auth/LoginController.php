@@ -39,13 +39,13 @@ class LoginController extends Controller
 
                     return redirect()->route('dashboard');
                 } else {
-                    return redirect()->route('login')->with('msg', '<b>Login gagal</b>,Akun belum aktif atau sementara dinonaktifkan oleh admin');
+                    return redirect()->route('admin.login')->with('msg', '<b>Login gagal</b>,Akun belum aktif atau sementara dinonaktifkan oleh admin');
                 }
             } else {
-                return redirect()->route('login')->with('msg', '<b>Login gagal</b>,email atau password salah');
+                return redirect()->route('admin.login')->with('msg', '<b>Login gagal</b>,email atau password salah');
             }
         } else {
-            return redirect()->route('login')->with('msg', 'Email dan password wajib');
+            return redirect()->route('admin.login')->with('msg', 'Email dan password wajib');
         }
     }
     public function indexRegisterSiswa()

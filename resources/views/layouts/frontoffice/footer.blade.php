@@ -30,8 +30,10 @@
                          <li><i class="bi bi-chevron-right"></i> <a href="#">Jadwal Asesmen</a></li>
                          <li><i class="bi bi-chevron-right"></i> <a href="#">Uji Kompetensi</a></li>
                          <li><i class="bi bi-chevron-right"></i> <a href="#">Asesor Kompetensi</a></li>
-                         <li><i class="bi bi-chevron-right"></i> <a href="#">Login Asesor</a></li>
-                         <li><i class="bi bi-chevron-right"></i> <a href="#">Login Admin</a></li>
+                         <li><i class="bi bi-chevron-right"></i> <a href="{{ route('asesor.login') }}">Login Asesor</a>
+                         </li>
+                         <li><i class="bi bi-chevron-right"></i> <a href="{{ route('admin.login') }}">Login Admin</a>
+                         </li>
                      </ul>
                  </div>
 

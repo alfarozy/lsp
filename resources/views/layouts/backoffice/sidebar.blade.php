@@ -99,8 +99,8 @@
                 </li>
                 <li class="nav-header">Laporan</li>
                 <li class="nav-item">
-                    <a href="{{ route('kelas.index') }}"
-                        class="nav-link {{ request()->routeIs('kelas*') ? 'active' : '' }}">
+                    <a href="{{ route('laporan.asesmen') }}"
+                        class="nav-link {{ request()->routeIs('laporan.asesmen') ? 'active' : '' }}">
                         <i class="nav-icon 
                         fas fa-file-invoice"></i>
                         <p>
