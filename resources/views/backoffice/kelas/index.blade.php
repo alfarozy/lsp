@@ -71,7 +71,8 @@
                                                     {{ $item->nama_kelas }}
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    {{ 28 }} Siswa</td>
+                                                    {{ $item->siswa->count() }} Siswa
+                                                </td>
                                                 <td class="text-center align-middle">
                                                     @if ($item->enabled == 1)
                                                         <button class="btn btn-sm btn-success">Aktif</button>
