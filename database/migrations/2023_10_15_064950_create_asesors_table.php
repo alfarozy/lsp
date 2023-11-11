@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('nip');
             $table->string('password');
+            $table->string('jurusan');
             $table->tinyInteger('enabled')->default(1);
             $table->timestamps();
         });

@@ -56,9 +56,9 @@
                                     <thead>
                                         <tr>
                                             <th width="5%">No</th>
-                                            <th width="35%">Nama lengkap</th>
-                                            <th width="15%">Email</th>
-                                            <th width="15%">NIP</th>
+                                            <th width="20%">Nama lengkap</th>
+                                            <th width="15%">Email/NIP</th>
+                                            <th width="25%">Jurusan</th>
                                             <th width="15%">Status</th>
                                             <th width="15%" class="text-center">Aksi</th>
                                         </tr>
@@ -70,12 +70,13 @@
 
                                                 <td class="align-middle">
                                                     {{ $item->nama }}
+                                                    <small class="d-block">NIP: {{ $item->nip }}</small>
                                                 </td>
                                                 <td class="text-center align-middle">
                                                     {{ $item->email }}
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    {{ $item->nip }}
+                                                    {{ $item->jurusan }}
                                                 </td>
                                                 <td class="text-center align-middle">
                                                     @if ($item->enabled == 1)

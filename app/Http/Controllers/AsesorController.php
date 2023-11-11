@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Asesor;
+use App\Models\Siswa;
 use Illuminate\Http\Request;
 
 class AsesorController extends Controller
@@ -14,7 +15,8 @@ class AsesorController extends Controller
     }
     public function create()
     {
-        return view('backoffice.asesor.create');
+        $jurusan = Siswa::getAllJurusan();
+        return view('backoffice.asesor.create', compact('jurusan'));
     }
     public function store(Request $request)
     {
@@ -23,6 +25,7 @@ class AsesorController extends Controller
             'email'      => 'required|email|unique:asesors',
             'password'      => 'required',
             'nip'      => 'required',
+            'jurusan'      => 'required',
         ]);
 
         $attr['password'] = bcrypt($request->password);
@@ -35,7 +38,8 @@ class AsesorController extends Controller
     public function edit($id)
     {
         $data = Asesor::findOrFail($id);
-        return view("backoffice.asesor.edit", compact("data"));
+        $jurusan = Siswa::getAllJurusan();
+        return view("backoffice.asesor.edit", compact("data", 'jurusan'));
     }
     //> update data
     public function update(Request $request, $id)
@@ -46,6 +50,8 @@ class AsesorController extends Controller
             'email'      => 'required|email|unique:asesors,email,' . $id,
             'password'      => 'nullable|sometimes',
             'nip'      => 'required',
+            'jurusan'      => 'required',
+
         ]);
         unset($attr['password']);
         if ($request->password) {

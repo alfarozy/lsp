@@ -62,6 +62,11 @@
                                                 <td>:</td>
                                                 <td>{{ $jadwal->asesor->nip }}</td>
                                             </tr>
+                                            <tr>
+                                                <th>Jurusan</th>
+                                                <td>:</td>
+                                                <td>{{ $jadwal->asesor->jurusan }}</td>
+                                            </tr>
                                         </table>
                                     </div>
                                     <div class="col-6">

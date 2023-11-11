@@ -38,7 +38,7 @@
                                 <div class="card-body">
                                     @csrf
                                     <div class="row">
-                                        <div class="col-6">
+                                        <div class="col-4">
                                             <div class="form-group">
                                                 <label>Nama lengkap </label>
                                                 <input type="text" name="nama" value="{{ old('nama') }}"
@@ -49,13 +49,30 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-4">
                                             <div class="form-group">
                                                 <label>NIP </label>
                                                 <input type="text" name="nip" value="{{ old('nip') }}"
                                                     class="form-control @error('nip') is-invalid @enderror"
                                                     placeholder="Nip">
                                                 @error('nip')
+                                                    <small class="text-danger">{{ $message }}</small>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label>Jurusan </label>
+                                                <select name="jurusan" id="jurusan"
+                                                    class="form-control @error('jurusan') is-invalid @enderror">
+                                                    <option value="">Pilih Jurusan</option>
+                                                    @foreach ($jurusan as $j)
+                                                        <option value="{{ $j }}">
+                                                            {{ $j }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                @error('jurusan')
                                                     <small class="text-danger">{{ $message }}</small>
                                                 @enderror
                                             </div>
