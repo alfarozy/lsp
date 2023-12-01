@@ -32,6 +32,12 @@
 
                                         <h3 class="card-title mt-2 d-none d-md-block">@yield('title')</h3>
                                     </div>
+                                    <div class="col-sm-6 col-lg-6 text-center text-md-right ">
+                                        <a href="{{ route('jurusan.create') }}" class="btn btn-success btn-sm m-1"> <i
+                                                class="fa fa-plus"></i>
+                                            Tambah
+                                            Data</a>
+                                    </div>
                                 </div>
                             </div>
                             <!-- /.card-header -->
@@ -50,58 +56,44 @@
                                     <thead>
                                         <tr>
                                             <th width="5%">No</th>
-                                            <th width="25%">Ruangan </th>
-                                            <th width="15%">Jurusan</th>
-                                            <th width="15%">Asesor</th>
-                                            <th width="15%">Kelas</th>
-                                            <th width="15%">Tanggal</th>
-                                            <th width="20%" class="text-center">Aksi</th>
+                                            <th width="35%">Jurusan </th>
+                                            <th width="15%">Status</th>
+                                            <th width="15%" class="text-center">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($data as $item)
-                                            @php
-                                                $done = \App\Models\Asesmen::where(['jadwal_id' => $item->id])->count();
-                                            @endphp
                                             <tr>
                                                 <td class="text-center align-middle">{{ $loop->iteration }}</td>
 
                                                 <td class="align-middle">
-                                                    {{ $item->nama_ruangan }}
-                                                    <br>
-                                                    <span class="text-muted">Sudah dinilai
-                                                        {{ $done }} dari
-                                                        {{ $item->kelas->siswa->count() }} Siswa</span>
-                                                </td>
-                                                <td class="align-middle">
-                                                    {{ $item->asesor->jurusan->nama }}
-                                                </td>
-                                                <td class="align-middle">
-                                                    {{ $item->asesor->nama }}
-                                                    <br>
-                                                    <span class="text-muted">NIP: {{ $item->asesor->nip }}</span>
-                                                </td>
-                                                <td class="align-middle">
-                                                    {{ $item->kelas->nama_kelas }}
+                                                    {{ $item->nama }}
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    {{ $item->tanggal }} <br>
-                                                    <span class="text-muted"> Jam {{ $item->jam }} </span>
+                                                    @if ($item->enabled == 1)
+                                                        <button class="btn btn-sm btn-success">Aktif</button>
+                                                    @else
+                                                        <button class="btn btn-sm btn-danger">Tidak aktif</button>
+                                                    @endif
                                                 </td>
-                                                <td class="text-center align-middle">
+                                                <td>
                                                     <div class="d-flex justify-content-center">
-                                                        @if (auth('asesor')->check())
-                                                            <a href="{{ route('asesor-asesmen.show', $item->id) }}"
-                                                                class="m-1 btn btn-sm btn-primary" data-bs-toggle="tooltip"
-                                                                data-bs-placement="top" title="Edit data"><i
-                                                                    class="fa fa-list"></i> Penilaian</a>
-                                                        @else
-                                                            <a href="{{ route('asesmen.show', $item->id) }}"
-                                                                class="m-1 btn btn-sm btn-primary" data-bs-toggle="tooltip"
-                                                                data-bs-placement="top" title="Edit data"><i
-                                                                    class="fa fa-list"></i> Penilaian</a>
-                                                        @endif
+                                                        <a href="{{ route('jurusan.edit', $item->id) }}"
+                                                            class="m-1 btn btn-sm btn-secondary" data-bs-toggle="tooltip"
+                                                            data-bs-placement="top" title="Edit data"><i
+                                                                class="fa fa-edit"></i></a>
 
+                                                        @if ($item->enabled == 1)
+                                                            <a href="{{ route('jurusan.setActive', $item->id) }}"
+                                                                class="m-1 ml-2 btn btn-sm btn-danger"
+                                                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                                                title="Non aktifkan"><i class="fa fa-times"></i></a>
+                                                        @else
+                                                            <a href="{{ route('jurusan.setActive', $item->id) }}"
+                                                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                                                title="Aktifkan" class="m-1 ml-2 btn btn-sm btn-success"><i
+                                                                    class="fa fa-check"></i></a>
+                                                        @endif
                                                     </div>
                                                 </td>
                                             </tr>

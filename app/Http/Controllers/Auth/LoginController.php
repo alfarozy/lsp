@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Asesor;
 use App\Models\Employes;
+use App\Models\Jurusan;
 use App\Models\Kelas;
 use App\Models\Siswa;
 use App\Models\User;
@@ -51,9 +52,7 @@ class LoginController extends Controller
     public function indexRegisterSiswa()
     {
         $kelas = Kelas::where('enabled', 1)->get();
-        $jurusan = Siswa::getAllJurusan();
-
-        return view('auth.register-siswa', compact('kelas', 'jurusan'));
+        return view('auth.register-siswa', compact('kelas'));
     }
     public function registerSiswa(Request $request)
     {
@@ -69,7 +68,6 @@ class LoginController extends Controller
             'jenis_kelamin' => 'required|string',
             'password' => 'required|string',
             'kelas_id' => 'required|integer',
-            'jurusan' => 'required|string',
             'tanggal_lahir' => 'required|date',
             'tempat_lahir' => 'required|string',
             'alamat' => 'required|string',
@@ -86,7 +84,6 @@ class LoginController extends Controller
             'jenis_kelamin' => $request->jenis_kelamin,
             'password' => bcrypt($request->password),
             'kelas_id' => $request->kelas_id,
-            'jurusan' => $request->jurusan,
             'tanggal_lahir' => $request->tanggal_lahir,
             'tempat_lahir' => $request->tempat_lahir,
             'alamat' => $request->alamat,

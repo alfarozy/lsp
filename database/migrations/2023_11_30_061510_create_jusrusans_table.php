@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('asesors', function (Blueprint $table) {
+        Schema::create('jurusans', function (Blueprint $table) {
             $table->id();
-            $table->string('email')->unique();
-            $table->foreignId('jurusan_id');
             $table->string('nama');
-            $table->string('nip');
-            $table->string('password');
             $table->tinyInteger('enabled')->default(1);
             $table->timestamps();
         });
@@ -32,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('asesors');
+        Schema::dropIfExists('jurusans');
     }
 };

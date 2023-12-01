@@ -63,16 +63,16 @@
                                         <div class="col-4">
                                             <div class="form-group">
                                                 <label>Jurusan </label>
-                                                <select name="jurusan" id="jurusan"
-                                                    class="form-control @error('jurusan') is-invalid @enderror">
+                                                <select name="jurusan_id" id="jurusan_id"
+                                                    class="form-control @error('jurusan_id') is-invalid @enderror">
                                                     <option value="">Pilih Jurusan</option>
                                                     @foreach ($jurusan as $j)
-                                                        <option value="{{ $j }}">
-                                                            {{ $j }}
+                                                        <option value="{{ $j->id }}">
+                                                            {{ $j->nama }}
                                                         </option>
                                                     @endforeach
                                                 </select>
-                                                @error('jurusan')
+                                                @error('jurusan_id')
                                                     <small class="text-danger">{{ $message }}</small>
                                                 @enderror
                                             </div>

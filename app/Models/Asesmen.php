@@ -13,6 +13,10 @@ class Asesmen extends Model
     const STATUS_LULUS = 'Lulus';
     const STATUS_TIDAK_LULUS = 'Tidak Lulus';
 
+    public function asesor()
+    {
+        return $this->belongsTo(Asesor::class, 'asesor_id', 'id');
+    }
     public function siswa()
     {
         return $this->belongsTo(Siswa::class, 'siswa_id', 'id');

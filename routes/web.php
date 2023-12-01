@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardSiswaController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\ProgramController;
@@ -37,6 +38,10 @@ Route::prefix('dashboard')->group(function () {
         //> Kelas 
         Route::resource("kelas", KelasController::class);
         Route::get('kelas-action/setActive/{id}', [KelasController::class, 'setActive'])->name('kelas.setActive');
+        //> Jurusan 
+        Route::resource("jurusan", JurusanController::class);
+        Route::get('jurusan-action/setActive/{id}', [JurusanController::class, 'setActive'])->name('jurusan.setActive');
+
         //> asesor 
         Route::resource("asesor", AsesorController::class);
         Route::get('asesor-action/setActive/{id}', [AsesorController::class, 'setActive'])->name('asesor.setActive');

@@ -117,24 +117,6 @@
                                             </div>
                                             <div class="col-4">
                                                 <div class="form-group">
-                                                    <label for="jurusan">Jurusan</label>
-                                                    <select name="jurusan" id="jurusan"
-                                                        class="form-control @error('jurusan') is-invalid @enderror">
-                                                        <option value="">Pilih Jurusan </option>
-                                                        @foreach ($jurusan as $j)
-                                                            <option value="{{ $j }}"
-                                                                {{ $data->jurusan == $j ? 'selected' : '' }}>
-                                                                {{ $j }}
-                                                            </option>
-                                                        @endforeach
-                                                    </select>
-                                                    @error('jurusan')
-                                                        <small class="text-danger">{{ $message }}</small>
-                                                    @enderror
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="form-group">
                                                     <label for="tanggal">Tanggal Lahir</label>
                                                     <div class="input-group date">
                                                         <input type="text" name="tanggal_lahir" id="tanggal"

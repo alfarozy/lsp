@@ -30,8 +30,7 @@ class DashboardSiswaController extends Controller
     {
         $data = auth('siswa')->user();
         $kelas = Kelas::whereEnabled(1)->get();
-        $jurusan = Siswa::getAllJurusan();
-        return view('siswa.profile', compact('data', 'kelas', 'jurusan'));
+        return view('siswa.profile', compact('data', 'kelas'));
     }
     public function profileUpdate(Request $request)
     {

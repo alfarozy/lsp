@@ -35,18 +35,38 @@
                             </div>
                             <form method="POST" action="{{ route('kelas.store') }}" enctype="multipart/form-data">
                                 <!-- /.card-header -->
-                                <div class="card-body">
+                                <div class="card-body row">
                                     @csrf
-                                    <div class="form-group">
-                                        <label>Nama kelas </label>
-                                        <input type="text" name="nama_kelas" value="{{ old('nama_kelas') }}"
-                                            class="form-control @error('nama_kelas') is-invalid @enderror"
-                                            placeholder="Nama kelas">
-                                        @error('nama_kelas')
-                                            <small class="text-danger">{{ $message }}</small>
-                                        @enderror
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label>Nama kelas </label>
+                                            <input type="text" name="nama_kelas" value="{{ old('nama_kelas') }}"
+                                                class="form-control @error('nama_kelas') is-invalid @enderror"
+                                                placeholder="Nama kelas">
+                                            @error('nama_kelas')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
                                     </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="jurusan">Jurusan</label>
+                                            <select name="jurusan_id" id="jurusan_id"
+                                                class="form-control @error('jurusan_id') is-invalid @enderror">
+                                                <option value="">Pilih Jurusan</option>
+                                                @foreach ($jurusan as $j)
+                                                    <option value="{{ $j->id }}"
+                                                        {{ old('jurusan_id') == $j->id ? 'selected' : '' }}>
+                                                        {{ $j->nama }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            @error('jurusan_id')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
 
+                                    </div>
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-success col-md-3 mx-2">Submit</button>

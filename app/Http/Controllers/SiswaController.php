@@ -17,8 +17,7 @@ class SiswaController extends Controller
     public function create()
     {
         $kelas = Kelas::whereEnabled(1)->get();
-        $jurusan = Siswa::getAllJurusan();
-        return view('backoffice.siswa.create', compact('kelas', 'jurusan'));
+        return view('backoffice.siswa.create', compact('kelas'));
     }
     public function store(Request $request)
     {
@@ -29,7 +28,6 @@ class SiswaController extends Controller
             'password' => 'string|required',
             'nis' => 'required|string|unique:siswas',
             'kelas_id' => 'required|exists:kelas,id',
-            'jurusan' => 'required',
             'tanggal_lahir' => 'date|required',
             'tempat_lahir' => 'string|required',
             'jenis_kelamin' => 'in:L,P|required',
@@ -55,9 +53,8 @@ class SiswaController extends Controller
     public function edit($id)
     {
         $kelas = Kelas::whereEnabled(1)->get();
-        $jurusan = Siswa::getAllJurusan();
         $data = Siswa::findOrFail($id);
-        return view("backoffice.siswa.edit", compact("data", 'jurusan', 'kelas'));
+        return view("backoffice.siswa.edit", compact("data", 'kelas'));
     }
     //> update data
     public function update(Request $request, $id)
@@ -69,7 +66,6 @@ class SiswaController extends Controller
             'password' => 'string|nullable',
             'nis' => 'required|string|unique:siswas,nis,' . $data->id,
             'kelas_id' => 'required|exists:kelas,id',
-            'jurusan' => 'required',
             'tanggal_lahir' => 'date|required',
             'tempat_lahir' => 'string|required',
             'jenis_kelamin' => 'in:L,P|required',

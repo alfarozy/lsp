@@ -12,7 +12,7 @@ class Siswa extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     use HasFactory;
-    protected $fillable = ['kelas_id', 'nis', 'password', 'nama', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'nomor_telepon', 'alamat', 'jurusan', 'enabled'];
+    protected $fillable = ['kelas_id', 'nis', 'password', 'nama', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'nomor_telepon', 'alamat', 'enabled'];
 
     public  function kelas()
     {

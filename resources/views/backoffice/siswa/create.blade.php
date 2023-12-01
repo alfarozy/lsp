@@ -89,7 +89,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-6">
                                         <div class="form-group">
                                             <label>Nis </label>
                                             <input type="text" name="nis" value="{{ old('nis') }}"
@@ -100,7 +100,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-6">
                                         <div class="form-group">
                                             <label for="kelas_id">Kelas</label>
                                             <select name="kelas_id" id="kelas_id"
@@ -119,25 +119,7 @@
                                         </div>
 
                                     </div>
-                                    <div class="col-4">
-                                        <div class="form-group">
-                                            <label for="jurusan">Jurusan</label>
-                                            <select name="jurusan" id="jurusan"
-                                                class="form-control @error('jurusan') is-invalid @enderror">
-                                                <option value="">Pilih Jurusan</option>
-                                                @foreach ($jurusan as $j)
-                                                    <option value="{{ $j }}"
-                                                        {{ old('jurusan') == $j ? 'selected' : '' }}>
-                                                        {{ $j }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                            @error('jurusan')
-                                                <small class="text-danger">{{ $message }}</small>
-                                            @enderror
-                                        </div>
 
-                                    </div>
                                     <div class="col-4">
                                         <div class="form-group">
                                             <label for="tanggal">Tanggal Lahir</label>

@@ -66,7 +66,7 @@
                                         </tr>
                                         <tr>
                                             <th>Jurusan</th>
-                                            <td>{{ $data->jurusan }}</td>
+                                            <td>{{ $data->kelas->jurusan->nama }}</td>
                                         </tr>
                                         <tr>
                                             <th>Tanggal Lahir</th>

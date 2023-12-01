@@ -20,11 +20,10 @@ return new class extends Migration
             $table->string('nama');
             $table->string('password');
             $table->string('tempat_lahir')->nullable();
-            $table->date('tanggal_lahir')->nullable();
+            $table->string('tanggal_lahir')->nullable();
             $table->enum('jenis_kelamin', ['L', "P"])->nullable();
             $table->bigInteger('nomor_telepon')->nullable();
             $table->string("alamat");
-            $table->string("jurusan");
             $table->tinyInteger("enabled")->default(0);
             $table->timestamps();
         });

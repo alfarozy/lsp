@@ -12,5 +12,10 @@ class Asesor extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     use HasFactory;
-    protected $fillable = ['email', 'nama', 'nip', 'password', 'jurusan', 'enabled'];
+    protected $fillable = ['email', 'nama', 'nip', 'password', 'jurusan_id', 'enabled'];
+
+    public function jurusan()
+    {
+        return $this->belongsTo(Jurusan::class, 'jurusan_id', 'id');
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jurusan;
 use App\Models\Kelas;
 use Illuminate\Http\Request;
 
@@ -14,12 +15,14 @@ class KelasController extends Controller
     }
     public function create()
     {
-        return view('backoffice.kelas.create');
+        $jurusan = Jurusan::whereEnabled(1)->get();
+        return view('backoffice.kelas.create', compact('jurusan'));
     }
     public function store(Request $request)
     {
         $attr = $request->validate([
             'nama_kelas'      => 'required',
+            'jurusan_id' => 'required'
         ]);
 
         Kelas::create($attr);
@@ -31,7 +34,9 @@ class KelasController extends Controller
     public function edit($id)
     {
         $data = Kelas::findOrFail($id);
-        return view("backoffice.kelas.edit", compact("data"));
+        $jurusan = Jurusan::whereEnabled(1)->get();
+
+        return view("backoffice.kelas.edit", compact("data", 'jurusan'));
     }
     //> update data
     public function update(Request $request, $id)
@@ -39,6 +44,7 @@ class KelasController extends Controller
         $data = Kelas::findOrFail($id);
         $attr = $request->validate([
             'nama_kelas'      => 'required',
+            'jurusan_id' => 'required'
         ]);
         $data->update($attr);
         toastr()->success("Berhasil mengupdate data", 'Berhasil');

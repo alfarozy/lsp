@@ -56,8 +56,9 @@
                                     <thead>
                                         <tr>
                                             <th width="5%">No</th>
-                                            <th width="35%">Nama Kelas</th>
-                                            <th width="15%">Total siswa</th>
+                                            <th width="20%">Nama Kelas</th>
+                                            <th width="30%">Jurusan</th>
+                                            <th width="10%">Total siswa</th>
                                             <th width="15%">Status</th>
                                             <th width="15%" class="text-center">Aksi</th>
                                         </tr>
@@ -69,6 +70,9 @@
 
                                                 <td class="align-middle">
                                                     {{ $item->nama_kelas }}
+                                                </td>
+                                                <td class="align-middle">
+                                                    {{ $item->jurusan->nama }}
                                                 </td>
                                                 <td class="text-center align-middle">
                                                     {{ $item->siswa->count() }} Siswa

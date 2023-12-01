@@ -9,10 +9,15 @@ class Kelas extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nama_kelas', 'enabled'];
+    protected $fillable = ['nama_kelas', 'jurusan_id', 'enabled'];
 
     public function siswa()
     {
         return $this->hasMany(Siswa::class, 'kelas_id', 'id');
+    }
+
+    public function jurusan()
+    {
+        return $this->belongsTo(Jurusan::class, 'jurusan_id', 'id');
     }
 }

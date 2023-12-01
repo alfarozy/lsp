@@ -65,7 +65,7 @@
                                             <tr>
                                                 <th>Jurusan</th>
                                                 <td>:</td>
-                                                <td>{{ $jadwal->asesor->jurusan }}</td>
+                                                <td>{{ $jadwal->asesor->jurusan->nama }}</td>
                                             </tr>
                                         </table>
                                     </div>

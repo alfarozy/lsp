@@ -50,6 +50,16 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('jurusan.index') }}"
+                        class="nav-link {{ request()->routeIs('jurusan*') ? 'active' : '' }}">
+                        <i class="nav-icon 
+                        fa fa-chalkboard"></i>
+                        <p>
+                            Data Jurusan
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('jadwal.index') }}"
                         class="nav-link {{ request()->routeIs('jadwal*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-calendar-alt

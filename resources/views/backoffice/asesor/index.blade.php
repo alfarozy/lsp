@@ -76,7 +76,7 @@
                                                     {{ $item->email }}
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    {{ $item->jurusan }}
+                                                    {{ $item->jurusan->nama }}
                                                 </td>
                                                 <td class="text-center align-middle">
                                                     @if ($item->enabled == 1)
