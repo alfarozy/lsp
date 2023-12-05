@@ -53,9 +53,9 @@
                     <a href="{{ route('jurusan.index') }}"
                         class="nav-link {{ request()->routeIs('jurusan*') ? 'active' : '' }}">
                         <i class="nav-icon 
-                        fa fa-chalkboard"></i>
+                        fa fa-address-book"></i>
                         <p>
-                            Data Jurusan
+                            Data kompetensi
                         </p>
                     </a>
                 </li>

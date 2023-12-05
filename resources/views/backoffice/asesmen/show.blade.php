@@ -63,7 +63,7 @@
                                                 <td>{{ $jadwal->asesor->nip }}</td>
                                             </tr>
                                             <tr>
-                                                <th>Jurusan</th>
+                                                <th>Kompetensi keahlian</th>
                                                 <td>:</td>
                                                 <td>{{ $jadwal->asesor->jurusan->nama }}</td>
                                             </tr>

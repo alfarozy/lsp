@@ -57,7 +57,7 @@
                                         <tr>
                                             <th width="5%">No</th>
                                             <th width="20%">Nama Kelas</th>
-                                            <th width="30%">Jurusan</th>
+                                            <th width="30%">Kompetensi keahlian</th>
                                             <th width="10%">Total siswa</th>
                                             <th width="15%">Status</th>
                                             <th width="15%" class="text-center">Aksi</th>

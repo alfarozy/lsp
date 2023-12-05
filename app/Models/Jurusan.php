@@ -9,4 +9,10 @@ class Jurusan extends Model
 {
     use HasFactory;
     protected $fillable = ['nama', 'enabled'];
+
+
+    public function asesors()
+    {
+        return $this->hasMany(Asesor::class);
+    }
 }

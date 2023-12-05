@@ -51,7 +51,7 @@
                                         <tr>
                                             <th width="5%">No</th>
                                             <th width="25%">Ruangan </th>
-                                            <th width="15%">Jurusan</th>
+                                            <th width="15%">Kompetensi Keahlian</th>
                                             <th width="15%">Asesor</th>
                                             <th width="15%">Kelas</th>
                                             <th width="15%">Tanggal</th>

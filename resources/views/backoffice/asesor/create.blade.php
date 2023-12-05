@@ -62,10 +62,10 @@
                                         </div>
                                         <div class="col-4">
                                             <div class="form-group">
-                                                <label>Jurusan </label>
+                                                <label>Kompetensi keahlian </label>
                                                 <select name="jurusan_id" id="jurusan_id"
                                                     class="form-control @error('jurusan_id') is-invalid @enderror">
-                                                    <option value="">Pilih Jurusan</option>
+                                                    <option value="">Pilih Kompetensi keahlian</option>
                                                     @foreach ($jurusan as $j)
                                                         <option value="{{ $j->id }}">
                                                             {{ $j->nama }}

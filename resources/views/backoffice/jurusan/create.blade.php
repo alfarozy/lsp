@@ -38,10 +38,10 @@
                                 <div class="card-body">
                                     @csrf
                                     <div class="form-group">
-                                        <label>Nama jurusan </label>
+                                        <label>Nama Kompetensi keahlian </label>
                                         <input type="text" name="nama" value="{{ old('nama') }}"
                                             class="form-control @error('nama') is-invalid @enderror"
-                                            placeholder="Nama kelas">
+                                            placeholder="Nama Kompetensi keahlian">
                                         @error('nama')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror

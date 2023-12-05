@@ -50,10 +50,10 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <label for="jurusan">Jurusan</label>
+                                            <label for="jurusan">Kompetensi keahlian</label>
                                             <select name="jurusan_id" id="jurusan_id"
                                                 class="form-control @error('jurusan_id') is-invalid @enderror">
-                                                <option value="">Pilih Jurusan</option>
+                                                <option value="">Pilih Kompetensi keahlian</option>
                                                 @foreach ($jurusan as $j)
                                                     <option value="{{ $j->id }}"
                                                         {{ old('jurusan_id') == $j->id ? 'selected' : '' }}>

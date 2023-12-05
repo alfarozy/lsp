@@ -78,7 +78,6 @@
                                         @foreach ($data as $item)
                                             <tr>
                                                 <td class="text-center align-middle">{{ $loop->iteration }}</td>
-                                                {{-- protected $fillable = ['kelas_id', 'nis', 'nama', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'nomor_telepon', 'alamat', 'jurusan']; --}}
 
                                                 <td class="align-middle">
                                                     {{ $item->nama }}

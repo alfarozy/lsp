@@ -58,7 +58,7 @@
                                             <th width="5%">No</th>
                                             <th width="20%">Nama lengkap</th>
                                             <th width="15%">Email/NIP</th>
-                                            <th width="25%">Jurusan</th>
+                                            <th width="25%">Kompetensi keahlian</th>
                                             <th width="15%">Status</th>
                                             <th width="15%" class="text-center">Aksi</th>
                                         </tr>

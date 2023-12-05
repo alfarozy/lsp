@@ -56,7 +56,8 @@
                                     <thead>
                                         <tr>
                                             <th width="5%">No</th>
-                                            <th width="35%">Jurusan </th>
+                                            <th width="35%">Kompetensi keahlian </th>
+                                            <th width="20%">Asesor</th>
                                             <th width="15%">Status</th>
                                             <th width="15%" class="text-center">Aksi</th>
                                         </tr>
@@ -67,7 +68,12 @@
                                                 <td class="text-center align-middle">{{ $loop->iteration }}</td>
 
                                                 <td class="align-middle">
-                                                    {{ $item->nama }}
+                                                    Kompetensi keahlian {{ $item->nama }}
+                                                </td>
+                                                <td class="align-middle">
+                                                    @foreach ($item->asesors as $i)
+                                                        <span class="d-block"> • {{ $i->nama }}</span>
+                                                    @endforeach
                                                 </td>
                                                 <td class="text-center align-middle">
                                                     @if ($item->enabled == 1)

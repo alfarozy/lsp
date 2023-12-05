@@ -65,7 +65,7 @@
                                             <td>{{ $data->kelas->nama_kelas }}</td>
                                         </tr>
                                         <tr>
-                                            <th>Jurusan</th>
+                                            <th>Kompetensi keahlian</th>
                                             <td>{{ $data->kelas->jurusan->nama }}</td>
                                         </tr>
                                         <tr>
