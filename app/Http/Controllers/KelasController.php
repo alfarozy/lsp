@@ -25,6 +25,12 @@ class KelasController extends Controller
             'jurusan_id' => 'required'
         ]);
 
+        $checkClass = Kelas::where('nama_kelas', $request->nama_kelas)->first();
+        if ($checkClass) {
+            toastr()->error("Nama kelas sudah tersedia", 'Gagal');
+            return redirect()->back();
+        }
+
         Kelas::create($attr);
         toastr()->success("Berhasil menambahkan data", 'Berhasil');
         return redirect()->route("kelas.index");

@@ -4,7 +4,23 @@
 
 <head>
     <meta charset="utf-8">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
 
+        th,
+        td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 
 <body>
@@ -35,13 +51,7 @@
                 </tr>
             @endforeach
         </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="1"></td>
-                <td align="left">Total</td>
-                <td align="left" class="gray">{{ $data->count() }}</td>
-            </tr>
-        </tfoot>
+
     </table>
 
 </body>

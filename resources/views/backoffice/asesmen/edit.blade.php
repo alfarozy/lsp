@@ -89,8 +89,8 @@
                                                 <label for="status">Status</label>
                                                 <select name="status" id="status"
                                                     class="form-control @error('status') is-invalid @enderror">
-                                                    <option value="Lulus">Lulus</option>
-                                                    <option value="Tidak Lulus">Tidak Lulus</option>
+                                                    <option value="Kompeten">Kompeten</option>
+                                                    <option value="Tidak Kompeten">Tidak Kompeten</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -150,11 +150,12 @@
                                                 <label for="status">Status</label>
                                                 <select name="status" id="status"
                                                     class="form-control @error('status') is-invalid @enderror">
-                                                    <option value="Lulus"
-                                                        {{ $data->status == 'Lulus' ? 'selected' : '' }}>Lulus</option>
-                                                    <option value="Tidak Lulus"
-                                                        {{ $data->status == 'Tidak Lulus' ? 'selected' : '' }}>Tidak
-                                                        Lulus</option>
+                                                    <option value="Kompeten"
+                                                        {{ $data->status == 'Kompeten' ? 'selected' : '' }}>Kompeten
+                                                    </option>
+                                                    <option value="Tidak Kompeten"
+                                                        {{ $data->status == 'Tidak Kompeten' ? 'selected' : '' }}>Tidak
+                                                        Kompeten</option>
                                                 </select>
                                                 @error('status')
                                                     <small class="text-danger">{{ $message }}</small>

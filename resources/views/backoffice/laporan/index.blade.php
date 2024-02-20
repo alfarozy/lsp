@@ -63,13 +63,13 @@
                                                     <option value="" disabled
                                                         {{ !request()->status ? 'selected' : '' }}>
                                                         Pilih status</option>
-                                                    <option {{ request()->status == 'Lulus' ? 'selected' : '' }}
-                                                        value="Lulus">
-                                                        Lulus
+                                                    <option {{ request()->status == 'Kompeten' ? 'selected' : '' }}
+                                                        value="Kompeten">
+                                                        Kompeten
                                                     </option>
-                                                    <option {{ request()->status == 'Tidak Lulus' ? 'selected' : '' }}
-                                                        value="Tidak Lulus">
-                                                        Tidak Lulus
+                                                    <option {{ request()->status == 'Tidak Kompeten' ? 'selected' : '' }}
+                                                        value="Tidak Kompeten">
+                                                        Tidak Kompeten
                                                     </option>
                                                 </select>
                                             </div>
@@ -94,13 +94,19 @@
                                     </div>
                                     <div class="col-sm-6 col-lg-6 text-center text-md-right ">
                                         @if (auth('asesor')->check())
+                                            <a href="{{ route('asesor.laporan.asesmen.export.pdf', ['status' => request()->status, 'kelas_id' => request()->kelas_id]) }}"
+                                                class="btn btn-outline-danger btn-sm m-1"> <i class="fa fa-file-pdf"></i>
+                                                Export PDF</a>
                                             <a href="{{ route('asesor.laporan.asesmen.export', ['status' => request()->status, 'kelas_id' => request()->kelas_id]) }}"
                                                 class="btn btn-outline-success btn-sm m-1"> <i class="fa fa-file-excel"></i>
                                                 Export</a>
                                         @else
+                                            <a href="{{ route('laporan.asesmen.export.pdf', ['status' => request()->status, 'kelas_id' => request()->kelas_id]) }}"
+                                                class="btn btn-outline-danger btn-sm m-1"> <i class="fa fa-file-pdf"></i>
+                                                Export PDF</a>
                                             <a href="{{ route('laporan.asesmen.export', ['status' => request()->status, 'kelas_id' => request()->kelas_id]) }}"
                                                 class="btn btn-outline-success btn-sm m-1"> <i class="fa fa-file-excel"></i>
-                                                Export</a>
+                                                Export Excel</a>
                                         @endif
                                     </div>
                                 </div>
@@ -129,7 +135,7 @@
                                         <tr>
                                             <th>Kelas</th>
                                             <th>Nama Lengkap</th>
-                                            <th>NIS</th>
+                                            <th>NISN</th>
                                             <th>Jadwal</th>
                                             <th>Ruangan</th>
                                             <th class="text-center">Status Kelulusan</th>
@@ -150,10 +156,10 @@
                                                 <td>{{ $item->jadwal->tanggal }}</td>
                                                 <td>{{ $item->jadwal->nama_ruangan }}</td>
                                                 <td class="text-center">
-                                                    @if ($item->status == 'Lulus')
-                                                        <button class="btn btn-sm btn-success">Lulus</button>
+                                                    @if ($item->status == 'Kompeten')
+                                                        <button class="btn btn-sm btn-success">Kompeten</button>
                                                     @else
-                                                        <button class="btn btn-sm btn-danger">Tidak Lulus</button>
+                                                        <button class="btn btn-sm btn-danger">Tidak Kompeten</button>
                                                     @endif
                                                 </td>
 
@@ -203,7 +209,8 @@
                             <label for="exampleInputFile">Import file </label>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input type="file" name="file" class="custom-file-input" id="exampleInputFile">
+                                    <input type="file" name="file" class="custom-file-input"
+                                        id="exampleInputFile">
                                     <label class="custom-file-label" for="exampleInputFile">Pilih File excel</label>
                                 </div>
                             </div>

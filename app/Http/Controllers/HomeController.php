@@ -16,7 +16,7 @@ class HomeController extends Controller
             'siswa' => Siswa::whereEnabled(1)->count(),
             'asesor' => Asesor::whereEnabled(1)->count(),
             'jadwal' => Jadwal::whereEnabled(1)->count(),
-            'asesmen' => Asesmen::whereStatus('Lulus')->count()
+            'asesmen' => Asesmen::whereStatus('Kompeten')->count()
         ];
         return view("frontoffice.index", $data);
     }

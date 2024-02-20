@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId("jadwal_id");
             $table->foreignId("asesor_id");
             $table->foreignId("siswa_id");
-            $table->enum("status", ["Lulus", "Tidak Lulus"]);
+            $table->enum("status", ["Kompeten", "Tidak Kompeten"]);
             $table->text('description')->nullable();
             $table->timestamps();
         });

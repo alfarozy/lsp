@@ -24,71 +24,7 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card collapsed-card">
-                            <div class="card-header">
-                                <h3 class="card-title">Filter / Cari data</h3>
 
-                                <div class="card-tools">
-                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"
-                                        title="Collapse">
-                                        <i class="fas fa-minus"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <form action="{{ route('users.index') }}" method="get">
-                                    @csrf
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Tanggal mulai</label>
-                                                <input value="{{ old('start') ?? request()->start }}" type="date"
-                                                    name="start" class="form-control" placeholder="Enter ...">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Tanggal akhir </label>
-                                                <input value="{{ old('end') ?? request()->end }}" type="date" name="end"
-                                                    class="form-control" placeholder="Enter ...">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Nama pengguna<span class="text-muted">(opsional)</span></label>
-                                                <input type="text" value="{{ old('name') ?? request()->name }}"
-                                                    name="name" class="form-control">
-                                                <small></small>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Status <span class="text-muted">(opsional)</span></label>
-                                                <select name="status" class="form-control">
-                                                    <option value="" disabled {{ !request()->enabled ? 'selected' : '' }}>
-                                                        Pilih status</option>
-                                                    <option {{ request()->enabled == 1 ? 'selected' : '' }} value="1">
-                                                        Aktif
-                                                    </option>
-                                                    <option {{ request()->enabled == 0 ? 'selected' : '' }} value="0">
-                                                        Tidak
-                                                        aktif</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="text-right">
-
-                                        <button class="btn btn-primary" type="submit"> <i class="fa fa-filter"></i>
-                                            Filter data</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
@@ -98,12 +34,6 @@
                                         <h3 class="card-title mt-2 d-none d-md-block">@yield('title')</h3>
                                     </div>
                                     <div class="col-sm-6 col-lg-6 text-center text-md-right ">
-                                        <a href="#" type="button" data-toggle="modal" data-target="#import"
-                                            class="btn btn-light border btn-sm m-1"> <i class="fa fa-file-import"></i>
-                                            Import</a>
-                                        <a href="{{ route('users.export', ['start' => request()->start, 'end' => request()->end, 'status' => request()->status, 'nama_pegawai' => request()->nama_pegawai]) }}"
-                                            class="btn btn-outline-success btn-sm m-1"> <i class="fa fa-file-excel"></i>
-                                            Export</a>
                                         <a href="{{ route('users.create') }}" class="btn btn-success btn-sm m-1"> <i
                                                 class="fa fa-plus"></i>
                                             Tambah

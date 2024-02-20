@@ -70,14 +70,14 @@
                                                 <td class="text-center align-middle">
                                                     @if (!isset($status))
                                                         <button class="btn btn-sm btn-secondary">Belum Dinilai</button>
-                                                    @elseif($status->status == 'Lulus')
-                                                        <button class="btn btn-sm btn-success">Lulus</button>
+                                                    @elseif($status->status == 'Kompeten')
+                                                        <button class="btn btn-sm btn-success">Kompeten</button>
                                                     @else
-                                                        <button class="btn btn-sm btn-danger">Tidak Lulus</button>
+                                                        <button class="btn btn-sm btn-danger">Tidak Kompeten</button>
                                                     @endif
                                                 </td>
                                                 <td class="align-middle">
-                                                    @if (isset($status) && $status->status == 'Lulus')
+                                                    @if (isset($status) && $status->status == 'Kompeten')
                                                         {{ $status->description }}
                                                     @endif
                                                 </td>

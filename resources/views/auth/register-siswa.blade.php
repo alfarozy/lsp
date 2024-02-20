@@ -38,10 +38,10 @@
                         </div>
                         <div class="col-6">
                             <div class="form-group">
-                                <label>Nis </label>
-                                <input type="text" name="nis" value="{{ old('nis') }}"
-                                    class="form-control @error('nis') is-invalid @enderror" placeholder="Nomor Induk Siswa">
-                                @error('nis')
+                                <label>Email </label>
+                                <input type="text" name="email" value="{{ old('email') }}"
+                                    class="form-control @error('email') is-invalid @enderror" placeholder="Email">
+                                @error('email')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
@@ -76,7 +76,17 @@
                             </div>
 
                         </div>
-                        <div class="col-12">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label>NISN </label>
+                                <input type="text" name="nis" value="{{ old('nis') }}"
+                                    class="form-control @error('nis') is-invalid @enderror" placeholder="Nomor Induk Siswa">
+                                @error('nis')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-6">
                             <div class="form-group">
                                 <label>Password</label>
                                 <input type="password" name="password" value="{{ old('password') }}"

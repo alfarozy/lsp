@@ -71,6 +71,11 @@ class LoginController extends Controller
             'tanggal_lahir' => 'required|date',
             'tempat_lahir' => 'required|string',
             'alamat' => 'required|string',
+            'email' => [
+                'required',
+                'string',
+                Rule::unique('siswas', 'email'),
+            ],
         ], [
             '*.required' => 'Wajib diisi',
             'nis.unique' => 'NISN Sudah terdaftar'
@@ -80,6 +85,7 @@ class LoginController extends Controller
         Siswa::create([
             'nama' => $request->nama,
             'nis' => $request->nis,
+            'email' => $request->email,
             'nomor_telepon' => $request->nomor_telepon,
             'jenis_kelamin' => $request->jenis_kelamin,
             'password' => bcrypt($request->password),
@@ -101,7 +107,7 @@ class LoginController extends Controller
 
         if ($request->nis && $request->password) {
 
-            $user = Siswa::whereNis($request->nis)->first();
+            $user = Siswa::whereNis($request->nis)->orWhere('email', $request->nis)->first();
             if ($user && Hash::check($request->password, $user->password)) {
                 if ($user->enabled == 1) {
 

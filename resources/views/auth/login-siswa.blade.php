@@ -25,7 +25,7 @@
                 <form action="{{ route('siswa.login') }}" method="post">
                     @csrf
                     <div class="input-group mb-3">
-                        <input type="number" name="nis" class="form-control" placeholder="NISN">
+                        <input type="text" name="nis" class="form-control" placeholder="NISN Atau Email">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user-graduate"></span>

@@ -57,6 +57,7 @@ Route::prefix('dashboard')->group(function () {
         //> Laporan 
         Route::get('laporan/kelulusan', [LaporanController::class, 'index'])->name('laporan.asesmen');
         Route::get('laporan/kelulusan/export', [LaporanController::class, 'export'])->name('laporan.asesmen.export');
+        Route::get('laporan/kelulusan/export-pdf', [LaporanController::class, 'exportPDF'])->name('laporan.asesmen.export.pdf');
 
         //> user
         Route::resource('users', UserController::class);
@@ -138,6 +139,7 @@ Route::prefix('asesor/dashboard')->group(function () {
         Route::resource("asesor-asesmen", AsesmenController::class)->except("create");
         Route::get('asesor/laporan/kelulusan', [LaporanController::class, 'index'])->name('asesor.laporan.asesmen');
         Route::get('asesor/laporan/kelulusan/export', [LaporanController::class, 'export'])->name('asesor.laporan.asesmen.export');
+        Route::get('asesor/laporan/kelulusan/export-pdf', [LaporanController::class, 'exportPDF'])->name('asesor.laporan.asesmen.export.pdf');
     });
 
 

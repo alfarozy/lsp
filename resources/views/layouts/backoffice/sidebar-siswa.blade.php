@@ -28,8 +28,8 @@
                 <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
                 <li class="nav-item menu-open mt-3">
-                    <a href="{{ route('asesor.dashboard') }}"
-                        class="nav-link {{ request()->routeIs('asesor.dashboard') ? 'active' : '' }}">
+                    <a href="{{ route('siswa.dashboard') }}"
+                        class="nav-link {{ request()->routeIs('siswa.dashboard') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard

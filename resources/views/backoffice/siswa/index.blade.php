@@ -67,7 +67,7 @@
                                         <tr>
                                             <th width="5%">No</th>
                                             <th width="30%">Nama lengkap </th>
-                                            <th width="20%">NIS</th>
+                                            <th width="20%">NISN</th>
                                             <th width="15%">Kelas</th>
                                             <th width="15%">Jenis Kelamin</th>
                                             <th width="15%">Status</th>

@@ -89,9 +89,20 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-4">
                                         <div class="form-group">
-                                            <label>Nis </label>
+                                            <label>Email </label>
+                                            <input type="text" name="email" value="{{ old('email') }}"
+                                                class="form-control @error('email') is-invalid @enderror"
+                                                placeholder="Email">
+                                            @error('email')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label>NISN </label>
                                             <input type="text" name="nis" value="{{ old('nis') }}"
                                                 class="form-control @error('nis') is-invalid @enderror"
                                                 placeholder="Nomor Induk Siswa">
@@ -100,7 +111,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-4">
                                         <div class="form-group">
                                             <label for="kelas_id">Kelas</label>
                                             <select name="kelas_id" id="kelas_id"

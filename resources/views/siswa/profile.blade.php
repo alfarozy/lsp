@@ -45,7 +45,7 @@
                                         {{ session()->get('error') }}
                                     </div>
                                 @endif
-                                <form action="{{ route('siswa.profile') }}" method="post">
+                                <form action="{{ route('siswa.profile') }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="card-body">
                                         <div class="row">
@@ -83,6 +83,17 @@
                                                     @else
                                                         <small class="text-muted">Kosongkan jika tidak ingin memperbaharui
                                                             password</small>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="form-group">
+                                                    <label>Email</label>
+                                                    <input type="text" name="email" value="{{ $data->email }}"
+                                                        class="form-control @error('email') is-invalid @enderror"
+                                                        placeholder="Email">
+                                                    @error('email')
+                                                        <small class="text-danger">{{ $message }}</small>
                                                     @enderror
                                                 </div>
                                             </div>
@@ -174,6 +185,50 @@
                                                     @enderror
                                                 </div>
                                             </div>
+                                            <hr>
+
+                                            <div class="col-4">
+                                                @if ($data->foto)
+                                                    <div class="form-group">
+                                                        <img class="col-12" src="/storage/{{ $data->foto }}"
+                                                            alt="">
+                                                    </div>
+                                                @endif
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="form-group">
+                                                    <label for="foto">Upload Foto</label>
+                                                    <input type="file"
+                                                        class="form-control-file @error('foto') is-invalid @enderror"
+                                                        id="foto" name="foto">
+                                                    @error('foto')
+                                                        <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                @if ($data->file_rapor)
+                                                    <div class="form-group">
+                                                        <iframe src="/storage/{{ $data->file_rapor }}" width="100%"
+                                                            height="500px" frameborder="0"></iframe>
+
+                                                    </div>
+                                                @endif
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="form-group">
+                                                    <label for="file_rapor">Upload File Lapor</label>
+                                                    <input type="file"
+                                                        class="form-control-file @error('file_rapor') is-invalid @enderror"
+                                                        id="file_rapor" name="file_rapor">
+                                                    @error('file_rapor')
+                                                        <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+
+
                                         </div>
                                     </div>
                                     <div class="card-footer">

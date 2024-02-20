@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId("kelas_id");
             $table->bigInteger('nis')->unique();
+            $table->string('email');
             $table->string('nama');
             $table->string('password');
             $table->string('tempat_lahir')->nullable();
@@ -25,6 +26,8 @@ return new class extends Migration
             $table->bigInteger('nomor_telepon')->nullable();
             $table->string("alamat");
             $table->tinyInteger("enabled")->default(0);
+            $table->string('file_rapor')->nullable();
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }

@@ -35,24 +35,45 @@ class DashboardSiswaController extends Controller
     public function profileUpdate(Request $request)
     {
         $data = Siswa::findOrFail(Auth('siswa')->id());
+
         $attr = $request->validate([
             'nama' => 'string|required',
             'nomor_telepon' => 'string|required',
-            'password' => 'string|nullable',
+            'email' => 'required|string|unique:siswas,email,' . $data->id,
             'nis' => 'required|string|unique:siswas,nis,' . $data->id,
             'kelas_id' => 'required|exists:kelas,id',
-            'jurusan' => 'required',
             'tanggal_lahir' => 'date|required',
             'tempat_lahir' => 'string|required',
             'jenis_kelamin' => 'in:L,P|required',
             'alamat' => 'string|required',
+            'file_rapor' => 'nullable|mimes:pdf|max:5048', // Max size: 2MB
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:3048', // Max size: 2MB
         ]);
+
+        // Unset password attribute
         unset($attr['password']);
+
+        // Handle password update
         if ($request->password) {
             $attr['password'] = bcrypt($request->password);
         }
+
+        // Handle file_rapor upload
+        if ($request->file_rapor) {
+            $attr['file_rapor'] = $request->file_rapor->store('rapor');
+        }
+
+        // Handle foto upload
+        if ($request->foto) {
+            $attr['foto'] = $request->foto->store('foto');
+        }
+
+        // Update data
         $data->update($attr);
+
+        // Set success message
         toastr()->success("Berhasil mengupdate data", 'Berhasil');
+
         return redirect()->back();
     }
 }

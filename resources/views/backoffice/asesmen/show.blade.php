@@ -93,7 +93,7 @@
                                     <table id="datatable" class="datatable table table-bordered table-hover">
                                         <thead>
                                             <tr>
-                                                <th width="15%" class="text-center">NIS</th>
+                                                <th width="15%" class="text-center">NISN</th>
                                                 <th width="40%">Nama </th>
                                                 <th width="15%" class="text-center">Status</th>
                                                 <th width="15%" class="text-center">Aksi</th>
@@ -115,10 +115,10 @@
                                                     <td class="text-center align-middle">
                                                         @if (!isset($status))
                                                             <button class="btn btn-sm btn-secondary">Belum Dinilai</button>
-                                                        @elseif($status->status == 'Lulus')
-                                                            <button class="btn btn-sm btn-success">Lulus</button>
+                                                        @elseif($status->status == 'Kompeten')
+                                                            <button class="btn btn-sm btn-success">Kompeten</button>
                                                         @else
-                                                            <button class="btn btn-sm btn-danger">Tidak Lulus</button>
+                                                            <button class="btn btn-sm btn-danger">Tidak Kompeten</button>
                                                         @endif
                                                     </td>
                                                     <td>
